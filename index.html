@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -295,4 +295,752 @@
 
             <div class="flex flex-col gap-2">
                 <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">Overview & Architecture</span>
-                <p id="modalToolDesc" class="text-xs text-slate-300 leading-r
+                <p id="modalToolDesc" class="text-xs text-slate-300 leading-relaxed bg-slate-950 p-3.5 rounded-2xl border border-slate-800">
+                    Description goes here.
+                </p>
+            </div>
+
+            <!-- Key Features & Highlights -->
+            <div class="flex flex-col gap-1.5 text-xs">
+                <span class="font-bold text-slate-300 uppercase tracking-wider">Key Capabilities:</span>
+                <div id="modalToolFeatures" class="grid grid-cols-1 gap-1.5 text-slate-400 text-xs">
+                    <!-- Features inserted dynamically -->
+                </div>
+            </div>
+
+            <!-- Website Link / Launch Box -->
+            <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 flex justify-between items-center text-xs">
+                <span id="modalToolUrlText" class="text-indigo-400 font-mono truncate max-w-[260px]">https://...</span>
+                <button id="btnCopyToolUrl" class="bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs px-3 py-1.5 rounded-xl border border-slate-700 transition">
+                    Copy Link 📋
+                </button>
+            </div>
+
+            <button id="btnLaunchToolDirect" class="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 text-white font-black py-3 rounded-2xl text-xs sm:text-sm shadow-xl transition active:scale-95 flex items-center justify-center gap-2">
+                <span>Visit Official Website</span> <span>↗</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- SUBMIT TOOL PAID MONETIZATION MODAL -->
+    <div id="submitModal" class="hidden fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="w-full max-w-lg bg-slate-900 border border-slate-800 rounded-3xl p-5 sm:p-6 flex flex-col gap-4 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <button id="btnCloseSubmitModal" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg p-1">&times;</button>
+            
+            <div>
+                <h3 class="font-black text-base text-white flex items-center gap-2">
+                    <span>⚡ Submit Your AI Tool</span>
+                </h3>
+                <p class="text-xs text-slate-400 mt-0.5">Reach over 50,000+ monthly AI enthusiasts, investors, and early adopters.</p>
+            </div>
+
+            <!-- Pricing Tier Selection -->
+            <div class="grid grid-cols-2 gap-3 text-xs">
+                <div id="tierFeatured" class="border-2 border-amber-500 bg-amber-950/30 p-3.5 rounded-2xl flex flex-col justify-between gap-2 cursor-pointer shadow-md">
+                    <div>
+                        <span class="text-[10px] bg-amber-500 text-slate-950 font-black px-1.5 py-0.5 rounded uppercase">Recommended</span>
+                        <h4 class="font-bold text-white text-sm mt-1">Featured Listing</h4>
+                        <p class="text-[11px] text-slate-400 mt-0.5">• Featured on Homepage 30 Days<br>• Instant Approval<br>• DoFollow SEO Backlink</p>
+                    </div>
+                    <span class="font-black text-amber-400 text-base">$49 (One-Time)</span>
+                </div>
+
+                <div id="tierStandard" class="border border-slate-800 bg-slate-950 p-3.5 rounded-2xl flex flex-col justify-between gap-2 cursor-pointer">
+                    <div>
+                        <span class="text-[10px] bg-slate-800 text-slate-400 font-bold px-1.5 py-0.5 rounded uppercase">Free</span>
+                        <h4 class="font-bold text-white text-sm mt-1">Standard Queue</h4>
+                        <p class="text-[11px] text-slate-400 mt-0.5">• 7-14 Day Review Queue<br>• Standard Directory Entry<br>• Basic Backlink</p>
+                    </div>
+                    <span class="font-black text-slate-400 text-base">Free ($0)</span>
+                </div>
+            </div>
+
+            <!-- Form Inputs -->
+            <div class="flex flex-col gap-2.5 text-xs">
+                <input id="subToolName" type="text" placeholder="Tool Name (e.g. BrainWave AI)" class="bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-indigo-500 font-bold">
+                <input id="subToolUrl" type="url" placeholder="Website URL (https://...)" class="bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-indigo-500">
+                <textarea id="subToolDesc" rows="2" placeholder="Short description of what your tool does..." class="bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-indigo-500 resize-none"></textarea>
+                
+                <div class="grid grid-cols-2 gap-2">
+                    <select id="subToolCategory" class="bg-slate-950 border border-slate-800 text-white rounded-xl p-2.5 font-bold focus:outline-none focus:border-indigo-500">
+                        <option value="writing">Writing & SEO</option>
+                        <option value="coding">Dev & Coding</option>
+                        <option value="image">Image & Art</option>
+                        <option value="video">Video & Audio</option>
+                        <option value="productivity">Productivity</option>
+                    </select>
+
+                    <select id="subToolPricing" class="bg-slate-950 border border-slate-800 text-white rounded-xl p-2.5 font-bold focus:outline-none focus:border-indigo-500">
+                        <option value="free">100% Free</option>
+                        <option value="freemium" selected>Freemium</option>
+                        <option value="trial">Free Trial</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="btnSubmitToolAction" class="w-full bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 text-slate-950 font-black py-3 rounded-2xl text-xs sm:text-sm shadow-xl transition active:scale-95 flex items-center justify-center gap-2">
+                <span>Submit AI Tool for Listing</span> <span>🚀</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toastBox" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-indigo-600 text-white font-black px-4 py-2 rounded-full text-xs shadow-2xl z-50 transition-all flex items-center gap-1.5">
+        <span>✨</span> <span id="toastMsg">Action successful!</span>
+    </div>
+
+    <script>
+        function notify(msg) {
+            const t = document.getElementById('toastBox');
+            document.getElementById('toastMsg').innerText = msg;
+            t.classList.remove('hidden');
+            setTimeout(() => t.classList.add('hidden'), 2400);
+        }
+
+        // Robust Copy to Clipboard with fallback
+        function copyClipboard(txt) {
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(txt).catch(() => fallbackCopy(txt));
+                } else {
+                    fallbackCopy(txt);
+                }
+            } catch(e) {
+                fallbackCopy(txt);
+            }
+            notify('Copied to clipboard! 📋');
+        }
+
+        function fallbackCopy(txt) {
+            const el = document.createElement('textarea');
+            el.value = txt;
+            el.setAttribute('readonly', '');
+            el.style.position = 'absolute';
+            el.style.left = '-9999px';
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+        }
+
+        // --- Database of Curated AI Tools with Full Metadata ---
+        let toolsCatalog = [
+            {
+                id: 1,
+                name: 'ChatGPT (OpenAI)',
+                category: 'writing',
+                pricing: 'freemium',
+                pricingBadge: 'Freemium',
+                desc: 'Industry-leading conversational AI model for writing, coding, brainstorming, and daily problem solving.',
+                features: ['GPT-4o Multimodal intelligence', 'Custom GPTs ecosystem', 'Voice chat and web browsing'],
+                upvotes: 4210,
+                icon: '💬',
+                url: 'https://chat.openai.com',
+                badge: 'Industry Standard'
+            },
+            {
+                id: 2,
+                name: 'Cursor AI',
+                category: 'coding',
+                pricing: 'freemium',
+                pricingBadge: 'Freemium',
+                desc: 'An AI-powered fork of VS Code that builds, edits, and debugs full codebases with one prompt.',
+                features: ['Codebase-aware AI agent', 'Instant multi-file refactoring', 'Built on VS Code ecosystem'],
+                upvotes: 3890,
+                icon: '⚡',
+                url: 'https://cursor.com',
+                badge: 'Dev Favorite'
+            },
+            {
+                id: 3,
+                name: 'Midjourney v6',
+                category: 'image',
+                pricing: 'trial',
+                pricingBadge: 'Paid / Trial',
+                desc: 'Hyper-realistic AI image generation engine creating world-class artistic assets and photorealistic portraits.',
+                features: ['8K photorealistic output', 'Inpainting & zoom out controls', 'Advanced camera lighting parameters'],
+                upvotes: 3540,
+                icon: '🎨',
+                url: 'https://midjourney.com',
+                badge: 'Top Visual'
+            },
+            {
+                id: 4,
+                name: 'Claude 3.5 Sonnet',
+                category: 'writing',
+                pricing: 'freemium',
+                pricingBadge: 'Freemium',
+                desc: 'Anthropic’s flagship frontier model famous for natural human-like prose, deep reasoning, and artifact previews.',
+                features: ['Interactive live artifacts UI', '200k token context window', 'High benchmark coding IQ'],
+                upvotes: 3120,
+                icon: '🧠',
+                url: 'https://claude.ai',
+                badge: 'High IQ'
+            },
+            {
+                id: 5,
+                name: 'Ollama (Local LLMs)',
+                category: 'coding',
+                pricing: 'free',
+                pricingBadge: '100% Free / Open Source',
+                desc: 'Run open-weight AI models (Llama 3, DeepSeek, Mistral) locally on your Mac or PC without sending data anywhere.',
+                features: ['100% Offline and private', 'Zero API fees forever', 'CLI and REST API support'],
+                upvotes: 2780,
+                icon: '🦙',
+                url: 'https://ollama.ai',
+                badge: 'Private & Local'
+            },
+            {
+                id: 6,
+                name: 'ElevenLabs',
+                category: 'video',
+                pricing: 'freemium',
+                pricingBadge: 'Freemium',
+                desc: 'The most realistic AI voice generator and text-to-speech platform supporting 29+ languages and emotion cloning.',
+                features: ['Ultra-realistic voice cloning', 'AI dubbing for YouTube & video', 'Low-latency conversational API'],
+                upvotes: 2450,
+                icon: '🎙️',
+                url: 'https://elevenlabs.io',
+                badge: 'Best Audio'
+            },
+            {
+                id: 7,
+                name: 'Krea AI',
+                category: 'image',
+                pricing: 'free',
+                pricingBadge: 'Free Tier',
+                desc: 'Real-time interactive canvas AI painting and image enhancement with zero latency.',
+                features: ['Instant real-time diffusion', 'AI video generation tools', 'Image upscaler and enhancer'],
+                upvotes: 1980,
+                icon: '🖌️',
+                url: 'https://krea.ai',
+                badge: 'Real-Time'
+            },
+            {
+                id: 8,
+                name: 'Notion AI',
+                category: 'productivity',
+                pricing: 'freemium',
+                pricingBadge: 'Freemium',
+                desc: 'Connected AI assistant integrated directly into your docs, meeting notes, project trackers, and knowledge bases.',
+                features: ['Automated meeting summaries', 'Instant table generation', 'Q&A across personal workspace'],
+                upvotes: 1820,
+                icon: '📑',
+                url: 'https://notion.so',
+                badge: 'Workflow'
+            },
+            {
+                id: 9,
+                name: 'Runway Gen-3 Alpha',
+                category: 'video',
+                pricing: 'trial',
+                pricingBadge: 'Free Trial',
+                desc: 'Cinematic AI video generation software turning text and images into Hollywood-grade video clips.',
+                features: ['High-definition text-to-video', 'Motion brush camera control', 'Keyframe video generation'],
+                upvotes: 1690,
+                icon: '🎥',
+                url: 'https://runwayml.com',
+                badge: 'Cinematic'
+            }
+        ];
+
+        // Saved Stack (LocalStorage)
+        let savedIds = [];
+        try {
+            const raw = localStorage.getItem('futurevault_saved_ids');
+            if (raw) savedIds = JSON.parse(raw);
+        } catch(e) {}
+
+        function updateSavedCount() {
+            document.getElementById('savedBadgeCount').innerText = savedIds.length;
+            try {
+                localStorage.setItem('futurevault_saved_ids', JSON.stringify(savedIds));
+            } catch(e) {}
+        }
+        updateSavedCount();
+
+        // --- Render AI Tools Grid ---
+        const aiToolsGrid = document.getElementById('aiToolsGrid');
+        let activeCatFilter = 'all';
+        let activePricingFilter = 'all';
+
+        function renderTools(list) {
+            aiToolsGrid.innerHTML = '';
+            if (!list.length) {
+                aiToolsGrid.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-slate-500 text-xs">
+                        No AI tools match your current filter. Try resetting filters or search query!
+                    </div>
+                `;
+                return;
+            }
+
+            list.forEach(tool => {
+                const isSaved = savedIds.includes(tool.id);
+                const card = document.createElement('div');
+                card.className = 'tool-card bg-slate-900 border border-slate-800 rounded-3xl p-5 flex flex-col justify-between gap-4 shadow-xl cursor-pointer';
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start pb-2 border-b border-slate-800/80">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-10 h-10 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center text-xl shadow-inner">
+                                    ${tool.icon}
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-sm font-black text-white">${tool.name}</h4>
+                                    <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-wider">${tool.category}</span>
+                                </div>
+                            </div>
+                            <button class="btn-save text-base p-1 hover:scale-125 transition ${isSaved ? 'text-pink-500' : 'text-slate-600'}" title="Save to My Stack">
+                                ${isSaved ? '❤️' : '🤍'}
+                            </button>
+                        </div>
+
+                        <p class="text-xs text-slate-400 leading-relaxed mt-3">
+                            ${tool.desc}
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col gap-2.5 pt-2 border-t border-slate-800/80">
+                        <div class="flex justify-between items-center text-[10px]">
+                            <span class="bg-slate-950 border border-slate-800 text-slate-300 font-bold px-2 py-0.5 rounded-full">
+                                ${tool.pricingBadge}
+                            </span>
+                            <span class="text-amber-400 font-bold">${tool.badge}</span>
+                        </div>
+
+                        <div class="flex justify-between items-center gap-2">
+                            <button class="btn-upvote bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 font-bold text-xs px-3 py-1.5 rounded-xl transition flex items-center gap-1 active:scale-95">
+                                <span>▲</span> <span class="vote-count">${tool.upvotes.toLocaleString()}</span>
+                            </button>
+
+                            <button class="btn-open-detail flex-1 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-1.5 px-3 rounded-xl shadow transition text-center flex items-center justify-center gap-1">
+                                <span>Quick View</span> <span>⚡</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                // Upvote Event
+                const btnUpvote = card.querySelector('.btn-upvote');
+                const voteCount = card.querySelector('.vote-count');
+                btnUpvote.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    tool.upvotes++;
+                    voteCount.innerText = tool.upvotes.toLocaleString();
+                    btnUpvote.className = 'btn-upvote bg-indigo-950 border border-indigo-500 text-indigo-300 font-bold text-xs px-3 py-1.5 rounded-xl transition flex items-center gap-1';
+                    notify(`Upvoted ${tool.name}! ▲`);
+                });
+
+                // Save to Stack Event
+                const btnSave = card.querySelector('.btn-save');
+                btnSave.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (savedIds.includes(tool.id)) {
+                        savedIds = savedIds.filter(id => id !== tool.id);
+                        btnSave.innerText = '🤍';
+                        btnSave.className = 'btn-save text-base p-1 text-slate-600';
+                        notify(`Removed ${tool.name} from My Stack`);
+                    } else {
+                        savedIds.push(tool.id);
+                        btnSave.innerText = '❤️';
+                        btnSave.className = 'btn-save text-base p-1 text-pink-500';
+                        notify(`Saved ${tool.name} to My Stack! ❤️`);
+                    }
+                    updateSavedCount();
+                    renderSavedStack();
+                });
+
+                // Open Details Modal
+                card.querySelector('.btn-open-detail').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openToolDetail(tool);
+                });
+                card.addEventListener('click', () => openToolDetail(tool));
+
+                aiToolsGrid.appendChild(card);
+            });
+        }
+
+        function filterAndRender() {
+            let res = toolsCatalog;
+            if (activeCatFilter !== 'all') {
+                res = res.filter(t => t.category === activeCatFilter);
+            }
+            if (activePricingFilter !== 'all') {
+                res = res.filter(t => t.pricing === activePricingFilter);
+            }
+            const q = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (q) {
+                res = res.filter(t => t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q) || t.category.includes(q));
+            }
+            renderTools(res);
+        }
+        filterAndRender();
+
+        // Search Listener
+        document.getElementById('searchInput').addEventListener('input', filterAndRender);
+
+        // Category Pills Listener
+        document.querySelectorAll('.cat-pill').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.cat-pill').forEach(b => {
+                    b.className = 'cat-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-950 text-slate-400 hover:text-white border border-slate-800 transition whitespace-nowrap';
+                });
+                btn.className = 'cat-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow transition whitespace-nowrap';
+                activeCatFilter = btn.dataset.cat;
+                filterAndRender();
+            });
+        });
+
+        // Pricing Dropdown Listener
+        document.getElementById('selectPricingFilter').addEventListener('change', (e) => {
+            activePricingFilter = e.target.value;
+            filterAndRender();
+        });
+
+        // ==============================================
+        // TOOL DETAILS MODAL (GUARANTEES FLAWLESS RUN)
+        // ==============================================
+        let activeModalTool = null;
+        const toolDetailModal = document.getElementById('toolDetailModal');
+        const modalToolIcon = document.getElementById('modalToolIcon');
+        const modalToolName = document.getElementById('modalToolName');
+        const modalToolCategory = document.getElementById('modalToolCategory');
+        const modalToolPricing = document.getElementById('modalToolPricing');
+        const modalToolDesc = document.getElementById('modalToolDesc');
+        const modalToolFeatures = document.getElementById('modalToolFeatures');
+        const modalToolUrlText = document.getElementById('modalToolUrlText');
+        const btnCloseDetailModal = document.getElementById('btnCloseDetailModal');
+        const btnCopyToolUrl = document.getElementById('btnCopyToolUrl');
+        const btnLaunchToolDirect = document.getElementById('btnLaunchToolDirect');
+
+        function openToolDetail(tool) {
+            activeModalTool = tool;
+            modalToolIcon.innerText = tool.icon;
+            modalToolName.innerText = tool.name;
+            modalToolCategory.innerText = tool.category.toUpperCase();
+            modalToolPricing.innerText = tool.pricingBadge;
+            modalToolDesc.innerText = tool.desc;
+            modalToolUrlText.innerText = tool.url;
+
+            modalToolFeatures.innerHTML = '';
+            const feats = tool.features || ['Instant browser access', 'High-speed AI model execution', 'No installation required'];
+            feats.forEach(f => {
+                const item = document.createElement('div');
+                item.className = 'flex items-center gap-1.5 bg-slate-950 p-2 rounded-xl border border-slate-800/80';
+                item.innerHTML = `<span>✓</span> <span>${f}</span>`;
+                modalToolFeatures.appendChild(item);
+            });
+
+            toolDetailModal.classList.remove('hidden');
+        }
+
+        btnCloseDetailModal.addEventListener('click', () => toolDetailModal.classList.add('hidden'));
+
+        btnCopyToolUrl.addEventListener('click', () => {
+            if (activeModalTool) copyClipboard(activeModalTool.url);
+        });
+
+        btnLaunchToolDirect.addEventListener('click', () => {
+            if (!activeModalTool) return;
+            copyClipboard(activeModalTool.url);
+            notify(`URL copied! You can visit: ${activeModalTool.url}`);
+        });
+
+        document.getElementById('btnFeaturedPartner').addEventListener('click', () => {
+            openToolDetail(toolsCatalog[1]); // Cursor AI
+        });
+
+        // ==============================================
+        // 2. SMART AI MATCHMAKER WIZARD ENGINE
+        // ==============================================
+        const btnRunWizard = document.getElementById('btnRunWizard');
+        const wizardResultsContainer = document.getElementById('wizardResultsContainer');
+
+        btnRunWizard.addEventListener('click', () => {
+            const goal = document.getElementById('wizardGoal').value;
+            const budget = document.getElementById('wizardBudget').value;
+
+            let matched = toolsCatalog.filter(t => t.category === goal);
+            if (matched.length === 0) matched = toolsCatalog.slice(0, 3);
+            else matched = matched.slice(0, 3);
+
+            wizardResultsContainer.innerHTML = `
+                <div class="border-t border-slate-800 pt-3">
+                    <span class="text-xs font-black text-emerald-400 uppercase tracking-wider block mb-2">✨ Top 3 Verified Matches For Your Workflow:</span>
+                </div>
+            `;
+
+            matched.forEach((t, i) => {
+                const item = document.createElement('div');
+                item.className = 'bg-slate-950 border border-slate-800 p-3.5 rounded-2xl flex justify-between items-center text-xs shadow-md';
+                item.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="text-indigo-400 font-bold text-sm">#${i + 1}</span>
+                        <div>
+                            <span class="font-black text-white">${t.name}</span>
+                            <span class="text-[10px] text-slate-500 block">${t.pricingBadge} • ${t.badge}</span>
+                        </div>
+                    </div>
+                    <button class="btn-wizard-view bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-3 py-1.5 rounded-xl shadow">
+                        View Details ⚡
+                    </button>
+                `;
+                item.querySelector('.btn-wizard-view').addEventListener('click', () => openToolDetail(t));
+                wizardResultsContainer.appendChild(item);
+            });
+
+            notify('Matched top 3 AI tools for you! 🧙‍♂️');
+        });
+
+        // ==============================================
+        // 3. INTERACTIVE GOLDEN PROMPT PLAYGROUND
+        // ==============================================
+        const goldenPromptsDatabase = [
+            {
+                id: 1,
+                title: 'Viral LinkedIn Thought-Leader Post',
+                category: 'marketing',
+                badge: 'ChatGPT / Claude',
+                template: "Act as a viral LinkedIn ghostwriter. Write an insightful 200-word post about {topic}. Hook the audience in line 1 with an unconventional truth. Use punchy 1-sentence paragraphs. End with an engaging discussion question.",
+                defaultVar: "AI agents replacing routine SaaS workflows",
+                varLabel: "Post Topic"
+            },
+            {
+                id: 2,
+                title: 'Clean Code Refactor & Complexity Optimizer',
+                category: 'coding',
+                badge: 'Cursor / Claude 3.5',
+                template: "Analyze the following {lang} code. Refactor it to improve algorithmic time complexity to O(N). Eliminate redundancy, add concise TypeScript-grade docstrings, and handle edge cases gracefully.\n\nCode snippet:\n[Insert function here]",
+                defaultVar: "JavaScript / Python",
+                varLabel: "Programming Language"
+            },
+            {
+                id: 3,
+                title: 'High-Converting Cold Outreach Sequence',
+                category: 'marketing',
+                badge: 'GPT-4o',
+                template: "Write a high-converting 3-part cold email sequence targeting {role} at modern companies. Highlight a solution for pipeline growth. Keep email #1 under 80 words with a clear zero-friction call to action.",
+                defaultVar: "VP of Marketing / Founder",
+                varLabel: "Target Prospect Role"
+            },
+            {
+                id: 4,
+                title: 'Cinematic Midjourney Film Portrait',
+                category: 'image',
+                badge: 'Midjourney v6',
+                template: "/imagine prompt: A cinematic 35mm film portrait of {subject}, shot on Kodak Portra 400, shallow depth of field, natural morning sunlight, 8k resolution --ar 16:9 --v 6.0",
+                defaultVar: "a digital nomad coding in a Kyoto glass cafe",
+                varLabel: "Subject & Scene"
+            }
+        ];
+
+        const promptsListGrid = document.getElementById('promptsListGrid');
+        let activePromptCat = 'marketing';
+
+        function renderPrompts(cat) {
+            promptsListGrid.innerHTML = '';
+            const list = goldenPromptsDatabase.filter(p => p.category === cat);
+            const toShow = list.length ? list : goldenPromptsDatabase;
+
+            toShow.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'bg-slate-950 border border-slate-800 rounded-3xl p-5 flex flex-col justify-between gap-3 shadow-lg';
+                
+                let currentVal = p.defaultVar;
+                const getFullPrompt = (val) => p.template.replace('{topic}', val).replace('{lang}', val).replace('{role}', val).replace('{subject}', val);
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-center text-xs pb-2 border-b border-slate-800/80">
+                            <span class="font-bold text-white">${p.title}</span>
+                            <span class="text-[10px] bg-slate-900 border border-slate-800 text-indigo-300 font-bold px-2 py-0.5 rounded-full">${p.badge}</span>
+                        </div>
+
+                        <!-- Live Variable Input -->
+                        <div class="my-2 flex flex-col gap-1 text-xs">
+                            <label class="text-[10px] font-bold text-slate-400 uppercase">${p.varLabel}:</label>
+                            <input type="text" class="input-prompt-var bg-slate-900 border border-slate-800 rounded-xl px-3 py-1.5 text-xs text-amber-300 font-medium focus:outline-none focus:border-indigo-500" value="${currentVal}">
+                        </div>
+
+                        <!-- Output Display -->
+                        <pre class="prompt-preview font-mono text-xs text-slate-300 bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800/60 my-2 whitespace-pre-wrap leading-relaxed select-all">${getFullPrompt(currentVal)}</pre>
+                    </div>
+
+                    <button class="btn-copy-prompt w-full bg-slate-900 hover:bg-indigo-600 text-white font-bold text-xs py-2 rounded-xl border border-slate-800 shadow transition active:scale-95 flex items-center justify-center gap-1.5">
+                        <span>Copy Customized Prompt</span> <span>📋</span>
+                    </button>
+                `;
+
+                const inputVar = card.querySelector('.input-prompt-var');
+                const promptPre = card.querySelector('.prompt-preview');
+
+                inputVar.addEventListener('input', () => {
+                    promptPre.innerText = getFullPrompt(inputVar.value.trim() || p.defaultVar);
+                });
+
+                card.querySelector('.btn-copy-prompt').addEventListener('click', () => {
+                    copyClipboard(promptPre.innerText);
+                });
+
+                promptsListGrid.appendChild(card);
+            });
+        }
+        renderPrompts('marketing');
+
+        document.querySelectorAll('.prompt-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.prompt-filter-btn').forEach(b => {
+                    b.className = 'prompt-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-950 text-slate-400 hover:text-white border border-slate-800 transition';
+                });
+                btn.className = 'prompt-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow transition';
+                activePromptCat = btn.dataset.pcat;
+                renderPrompts(activePromptCat);
+            });
+        });
+
+        // ==============================================
+        // 4. SAVED STACK / BOOKMARKS VIEW
+        // ==============================================
+        const savedToolsGrid = document.getElementById('savedToolsGrid');
+        function renderSavedStack() {
+            savedToolsGrid.innerHTML = '';
+            const myTools = toolsCatalog.filter(t => savedIds.includes(t.id));
+            if (!myTools.length) {
+                savedToolsGrid.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-slate-500 text-xs">
+                        You have not saved any AI tools yet. Click the ❤️ on any tool in the directory to save it here!
+                    </div>
+                `;
+                return;
+            }
+
+            myTools.forEach(t => {
+                const card = document.createElement('div');
+                card.className = 'bg-slate-950 border border-slate-800 rounded-2xl p-4 flex justify-between items-center text-xs shadow-md';
+                card.innerHTML = `
+                    <div class="flex items-center gap-2.5 truncate">
+                        <span class="text-xl">${t.icon}</span>
+                        <div class="truncate">
+                            <span class="font-bold text-white block truncate">${t.name}</span>
+                            <span class="text-[10px] text-slate-500">${t.category}</span>
+                        </div>
+                    </div>
+                    <button class="btn-stack-view bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-3 py-1.5 rounded-xl shadow">
+                        View ↗
+                    </button>
+                `;
+                card.querySelector('.btn-stack-view').addEventListener('click', () => openToolDetail(t));
+                savedToolsGrid.appendChild(card);
+            });
+        }
+
+        document.getElementById('btnClearSaved').addEventListener('click', () => {
+            savedIds = [];
+            updateSavedCount();
+            renderSavedStack();
+            filterAndRender();
+            notify('Saved stack cleared');
+        });
+
+        // ==============================================
+        // 5. NAVIGATION CONTROLLER
+        // ==============================================
+        const navDirectory = document.getElementById('navDirectory');
+        const navWizard = document.getElementById('navWizard');
+        const navPrompts = document.getElementById('navPrompts');
+        const tabSavedBtn = document.getElementById('tabSavedBtn');
+
+        const secDirectory = document.getElementById('sectionDirectory');
+        const secWizard = document.getElementById('sectionWizard');
+        const secPrompts = document.getElementById('sectionPrompts');
+        const secSaved = document.getElementById('sectionSaved');
+
+        function switchSection(btn, sec) {
+            [navDirectory, navWizard, navPrompts].forEach(b => {
+                b.className = 'flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5';
+            });
+            [secDirectory, secWizard, secPrompts, secSaved].forEach(s => s.classList.add('hidden'));
+
+            if (btn) btn.className = 'flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md transition whitespace-nowrap flex items-center justify-center gap-1.5';
+            sec.classList.remove('hidden');
+        }
+
+        navDirectory.addEventListener('click', () => switchSection(navDirectory, secDirectory));
+        navWizard.addEventListener('click', () => switchSection(navWizard, secWizard));
+        navPrompts.addEventListener('click', () => switchSection(navPrompts, secPrompts));
+        tabSavedBtn.addEventListener('click', () => {
+            switchSection(null, secSaved);
+            renderSavedStack();
+        });
+        document.getElementById('btnLogoHome').addEventListener('click', () => switchSection(navDirectory, secDirectory));
+
+        // ==============================================
+        // 6. SUBMIT TOOL MONETIZATION MODAL
+        // ==============================================
+        const submitModal = document.getElementById('submitModal');
+        const btnOpenSubmitModal = document.getElementById('btnOpenSubmitModal');
+        const btnCloseSubmitModal = document.getElementById('btnCloseSubmitModal');
+        const btnSubmitToolAction = document.getElementById('btnSubmitToolAction');
+
+        btnOpenSubmitModal.addEventListener('click', () => submitModal.classList.remove('hidden'));
+        btnCloseSubmitModal.addEventListener('click', () => submitModal.classList.add('hidden'));
+
+        // Tier selection
+        let selectedTier = 'featured';
+        const tierFeatured = document.getElementById('tierFeatured');
+        const tierStandard = document.getElementById('tierStandard');
+
+        tierFeatured.addEventListener('click', () => {
+            selectedTier = 'featured';
+            tierFeatured.className = 'border-2 border-amber-500 bg-amber-950/30 p-3.5 rounded-2xl flex flex-col justify-between gap-2 cursor-pointer shadow-md';
+            tierStandard.className = 'border border-slate-800 bg-slate-950 p-3.5 rounded-2xl flex flex-col justify-between gap-2 cursor-pointer';
+            btnSubmitToolAction.innerText = 'Pay $49 & Publish Featured Tool 🚀';
+        });
+
+        tierStandard.addEventListener('click', () => {
+            selectedTier = 'standard';
+            tierStandard.className = 'border-2 border-indigo-500 bg-indigo-950/30 p-3.5 rounded-2xl flex flex-col justify-between gap-2 cursor-pointer shadow-md';
+            tierFeatured.className = 'border border-slate-800 bg-slate-950 p-3.5 rounded-2xl flex flex-col justify-between gap-2 cursor-pointer';
+            btnSubmitToolAction.innerText = 'Submit for Free Review Queue ⏱️';
+        });
+
+        btnSubmitToolAction.addEventListener('click', () => {
+            const name = document.getElementById('subToolName').value.trim();
+            const url = document.getElementById('subToolUrl').value.trim();
+            const desc = document.getElementById('subToolDesc').value.trim();
+            const cat = document.getElementById('subToolCategory').value;
+            const pricing = document.getElementById('subToolPricing').value;
+
+            if (!name || !url) {
+                notify('⚠️ Please provide tool name and website URL.');
+                return;
+            }
+
+            // Create new entry
+            const newTool = {
+                id: Date.now(),
+                name: name,
+                category: cat,
+                pricing: pricing,
+                pricingBadge: pricing === 'free' ? '100% Free' : 'Freemium',
+                desc: desc || 'Newly submitted AI tool on FutureVault.',
+                features: ['Newly added tool', 'Verified URL link', 'Community listing'],
+                upvotes: 1,
+                icon: '🚀',
+                url: url.startsWith('http') ? url : `https://${url}`,
+                badge: selectedTier === 'featured' ? 'Featured Sponsor' : 'New Listing'
+            };
+
+            toolsCatalog.unshift(newTool);
+            filterAndRender();
+            submitModal.classList.add('hidden');
+            switchSection(navDirectory, secDirectory);
+
+            notify(`🎉 Success! ${name} submitted and live on directory!`);
+        });
+    </script>
+</body>
+</html>
+```
